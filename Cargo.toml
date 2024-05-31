@@ -8,12 +8,13 @@ license-file = "LICENSE.txt"
 readme = "README.md"
 repository = "https://github.com/ianaio/history"
 homepage = "https://rustwasm.iana.io/history"
+documentation = "https://docs.iana.io/rustwasm/history"
 categories = ["api-bindings", "history", "wasm"]
 rust-version = "1.80"
 
 [dependencies]
-ianaio-utils = { version = "0.2.0", path = "../utils" }
-ianaio-events = { version = "0.2.0", path = "../events" }
+ianaio-utils = { version = "0.1.0", path = "../utils" }
+ianaio-events = { version = "0.1.0", path = "../events" }
 serde = { version = "1", features = ["derive"] }
 serde-wasm-bindgen = "0.6.0"
 serde_urlencoded = { version = "0.7", optional = true }
