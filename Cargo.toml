@@ -1,0 +1,37 @@
+[package]
+name = "ianaio-history"
+version = "0.2.2"
+description = "Universal Session History"
+authors = ["Jaroslaw Cichon <dev.iana.io> IanaIO Rust and WebAssembly Working Group"]
+edition = "2021"
+license-file = "LICENSE.txt"
+readme = "README.md"
+repository = "https://github.com/ianaio/history"
+homepage = "https://rustwasm.iana.io/history"
+categories = ["api-bindings", "history", "wasm"]
+rust-version = "1.80"
+
+[dependencies]
+ianaio-utils = { version = "0.2.0", path = "../utils" }
+ianaio-events = { version = "0.2.0", path = "../events" }
+serde = { version = "1", features = ["derive"] }
+serde-wasm-bindgen = "0.6.0"
+serde_urlencoded = { version = "0.7", optional = true }
+thiserror = { version = "1.0", optional = true }
+wasm-bindgen = "0.2.88"
+
+[dependencies.web-sys]
+version = "0.3"
+features = ["History", "Window", "Location", "Url"]
+
+[target.'cfg(target_arch = "wasm32")'.dependencies]
+getrandom = { version = "0.2.10", features = ["js"] }
+
+[dev-dependencies]
+wasm-bindgen-test = "0.3"
+ianaio-timers = { version = "0.3.0", features = ["futures"], path = "../timers" }
+
+[features]
+query = ["thiserror", "serde_urlencoded"]
+default = ["query"]
+
